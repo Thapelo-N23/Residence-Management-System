@@ -6,8 +6,7 @@ public class RoomEntity {
     private Integer floorNumber;
     private String floorName;
 
-    public RoomEntity(String roomID, Integer roomNumber, String roomType, String roomStatus,
-                      Integer floorNumber, String floorName) {
+    public RoomEntity() {
         this.roomID = roomID;
         this.roomNumber = roomNumber;
         this.roomType = roomType;
@@ -24,6 +23,19 @@ public class RoomEntity {
         private Integer floorNumber;
         private String floorName;
 
+        public Builder copy(RoomEntity roomEntity) {
+            this.roomID = roomEntity.roomID;
+            this.roomNumber = roomEntity.roomNumber;
+            this.roomType = roomEntity.roomType;
+            this.roomStatus = roomEntity.roomStatus;
+            this.floorNumber =roomEntity.floorNumber;
+            this.floorName = roomEntity.floorName;
+            return this;
+        }
+
+        public RoomEntity build(){
+            return new RoomEntity();
+        }
 
         public String getRoomID() {
             return roomID;
@@ -90,5 +102,6 @@ public class RoomEntity {
                     ", floorName='" + floorName + '\'' +
                     '}';
         }
+
     }
 }
