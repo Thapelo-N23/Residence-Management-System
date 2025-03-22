@@ -7,7 +7,7 @@ public class Payment {
     private Double amountPaid;
     private Boolean status;
     private LocalDate paymentDate;
-    private String studentID;
+    private String studentId;
 
 
     private Payment(Builder builder) {
@@ -15,7 +15,7 @@ public class Payment {
         this.amountPaid = builder.amountPaid;
         this.status = builder.status;
         this.paymentDate = builder.paymentDate;
-        this.studentID = builder.studentID;
+        this.studentId = builder.studentId;
     }
 
 
@@ -36,7 +36,7 @@ public class Payment {
     }
 
     public String getStudentID() {
-        return studentID;
+        return studentId;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Payment {
                 ", amountPaid=" + amountPaid +
                 ", status=" + status +
                 ", paymentDate=" + paymentDate +
-                ", studentID='" + studentID + '\'' +
+                ", studentID='" + studentId + '\'' +
                 '}';
     }
 
@@ -55,7 +55,7 @@ public class Payment {
         private Double amountPaid;
         private Boolean status;
         private LocalDate paymentDate;
-        private String studentID;
+        private String studentId;
 
         public Builder paymentID(String paymentID) {
             this.paymentID = paymentID;
@@ -77,7 +77,7 @@ public class Payment {
             return this;
         }
         public Builder studentID(String studentID) {
-            this.studentID = studentID;
+            this.studentId = studentID;
             return this;
         }
 
