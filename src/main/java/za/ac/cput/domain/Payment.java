@@ -76,8 +76,8 @@ public class Payment {
             this.paymentDate = paymentDate;
             return this;
         }
-        public Builder studentID(String studentID) {
-            this.studentId = studentID;
+        public Builder studentId(String studentID) {
+            this.studentId = studentId;
             return this;
         }
 
