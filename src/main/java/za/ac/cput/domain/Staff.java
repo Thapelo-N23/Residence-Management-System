@@ -3,7 +3,7 @@ package za.ac.cput.domain;
 
 
 
-public class StaffEntity {
+public class Staff {
     private String staffID;
     private String firstName;
     private String lastName;
@@ -12,7 +12,7 @@ public class StaffEntity {
 
 
 
-    public StaffEntity(String staffID, String firstName, String lastName, String email, String role) {
+    public Staff(String staffID, String firstName, String lastName, String email, String role) {
         this.staffID = staffID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -21,7 +21,7 @@ public class StaffEntity {
 
     }
 
-    public StaffEntity(Builder builder) {
+    public Staff(Builder builder) {
     }
 
     public String getStaffID() {
@@ -85,8 +85,8 @@ public class StaffEntity {
             this.role = role;
             return this;
         }
-        public StaffEntity build(){
-            return new StaffEntity(this);
+        public Staff build(){
+            return new Staff(this);
         }
     }
 
