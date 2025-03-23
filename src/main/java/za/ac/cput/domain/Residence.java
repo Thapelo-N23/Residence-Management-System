@@ -1,6 +1,7 @@
 package za.ac.cput.domain;
 
 public class Residence {
+
     private  String leaderID;
     private  String name;
     private  String email;
