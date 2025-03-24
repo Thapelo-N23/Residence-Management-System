@@ -19,7 +19,7 @@ public class Helper {
         }
         return true;
 
-        //Staff Helper
+
     }
     public static boolean isValidId(String leaderId) {
         if (leaderId == null || !leaderId.matches("\\d{9}")) { // Only numbers, length 9
@@ -28,7 +28,7 @@ public class Helper {
         }
         return true;
     }
-
+    //Staff Helper
     public static boolean isValid(String staffId) {
         if (staffId == null || !staffId.matches("STF\\d{6}")) { // Format: STF123456
             System.out.println("❌ Invalid Staff ID: " + staffId + " (Must follow 'STF' + 6 digits)");
