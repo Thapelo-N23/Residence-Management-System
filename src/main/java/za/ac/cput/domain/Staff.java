@@ -1,8 +1,5 @@
 package za.ac.cput.domain;
 
-
-
-
 public class Staff {
     private String staffID;
     private String firstName;
@@ -11,17 +8,13 @@ public class Staff {
     private String role;
 
 
+    private Staff(Builder builder) {
+        this.staffID = builder.staffID;
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.email = builder.email;
+        this.role = builder.role;
 
-    public Staff(String staffID, String firstName, String lastName, String email, String role) {
-        this.staffID = staffID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.role = role;
-
-    }
-
-    public Staff(Builder builder) {
     }
 
     public String getStaffID() {
@@ -54,40 +47,51 @@ public class Staff {
                 ", Role='" + role + '\'' +
                 '}';
     }
-    public static class Builder{
+
+    public static class Builder {
         private String staffID;
         private String firstName;
         private String lastName;
         private String email;
         private String role;
 
-        public Builder staffID(String staffID) {
+        public Builder setStaffID(String staffID) {
             this.staffID = staffID;
             return this;
         }
 
-        public Builder firstNAme(String firstName) {
+        public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder lastName(String lastName) {
+        public Builder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
         }
 
-        public Builder email(String email) {
+        public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder role (String role) {
+        public Builder setRole(String role) {
             this.role = role;
             return this;
         }
-        public Staff build(){
+
+        public Builder copy(Staff staff){
+            this.staffID = staff.staffID;
+            this.firstName = staff.firstName;
+            this.lastName = staff.lastName;
+            this.email = staff.email;
+            this.role = staff.role;
+            return this;
+        }
+        public Staff build() {
             return new Staff(this);
         }
-    }
 
-}
+
+        }
+    }
