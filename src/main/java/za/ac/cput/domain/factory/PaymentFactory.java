@@ -1,4 +1,4 @@
-package za.ac.cput.factory;
+package za.ac.cput.domain.factory;
 
 import za.ac.cput.domain.Payment;
 import za.ac.cput.domain.util.Helper;
