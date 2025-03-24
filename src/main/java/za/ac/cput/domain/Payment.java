@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Payment {
     private String paymentID;
-    private Double amountPaid;
+    private Double amount;
     private Boolean status;
     private LocalDate paymentDate;
     private String studentId;
@@ -12,7 +12,7 @@ public class Payment {
 
     private Payment(Builder builder) {
         this.paymentID = builder.paymentID;
-        this.amountPaid = builder.amountPaid;
+        this.amount = builder.amount;
         this.status = builder.status;
         this.paymentDate = builder.paymentDate;
         this.studentId = builder.studentId;
@@ -23,8 +23,8 @@ public class Payment {
         return paymentID;
     }
 
-    public Double getAmountPaid() {
-        return amountPaid;
+    public Double getAmount() {
+        return amount;
     }
 
     public Boolean getStatus() {
@@ -43,7 +43,7 @@ public class Payment {
     public String toString() {
         return "Payment{" +
                 "paymentID='" + paymentID + '\'' +
-                ", amountPaid=" + amountPaid +
+                ", amount=" + amount +
                 ", status=" + status +
                 ", paymentDate=" + paymentDate +
                 ", studentID='" + studentId + '\'' +
@@ -52,7 +52,7 @@ public class Payment {
 
     public static class Builder {
         private String paymentID;
-        private Double amountPaid;
+        private Double amount;
         private Boolean status;
         private LocalDate paymentDate;
         private String studentId;
@@ -62,8 +62,8 @@ public class Payment {
             return this;
         }
 
-        public Builder amountPaid(Double amountPaid) {
-            this.amountPaid = amountPaid;
+        public Builder amount(Double amount) {
+            this.amount = amount;
             return this;
         }
 

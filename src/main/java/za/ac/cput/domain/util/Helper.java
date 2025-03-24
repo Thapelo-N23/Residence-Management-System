@@ -1,5 +1,7 @@
 package za.ac.cput.domain.util;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 public class Helper {
@@ -28,6 +30,7 @@ public class Helper {
         }
         return true;
     }
+
     //Staff Helper
     public static boolean isValid(String staffId) {
         if (staffId == null || !staffId.matches("STF\\d{6}")) { // Format: STF123456
@@ -35,5 +38,43 @@ public class Helper {
             return false;
         }
         return true;
+    }
+
+    //Payment Helper
+    // Validate payment ID format (must be 'PAY' followed by exactly 6 digits)
+    public static boolean isValidPaymentId(String paymentId) {
+        if (paymentId == null || !paymentId.matches("^PAY\\d{6}$")) { // Must be 'PAY' followed by exactly 6 digits
+            System.out.println("❌ Invalid Payment ID: " + paymentId + " (Must be 'PAY' followed by 6 digits).");
+            return false;
+        }
+        return true;
+    }
+
+    // Validate the amount (must be a positive value)
+    public static boolean isValidAmount(String amount) {
+        if (isNullOrEmpty(amount)) {
+            return false;
+        }
+        try {
+            double amountValue = Double.parseDouble(amount);
+            return amountValue > 0;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    // Validate if status is "true" (Paid) or "false" (Not Paid)
+    public static boolean isValidStatus(String status) {
+        return "true".equalsIgnoreCase(status) || "false".equalsIgnoreCase(status);
+    }
+
+    // Parse the payment date string into LocalDate (validate format)
+    public static LocalDate parseDate(String paymentDate) {
+        try {
+            return LocalDate.parse(paymentDate);
+        } catch (DateTimeParseException e) {
+            System.out.println("❌ Invalid date format: " + paymentDate + ". Expected format: YYYY-MM-DD.");
+            return null;
+        }
     }
 }
