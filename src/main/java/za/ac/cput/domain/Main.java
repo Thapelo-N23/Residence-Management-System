@@ -2,7 +2,7 @@ package za.ac.cput.domain;
 
 import za.ac.cput.domain.factory.ResidenceFactory;
 import za.ac.cput.domain.factory.StaffFactory;
-//import za.ac.cput.factory.PaymentFactory;
+import za.ac.cput.domain.factory.PaymentFactory;
 
 
 public class Main {
@@ -22,14 +22,15 @@ public class Main {
           else{
               System.out.println("Staff is null");
           }
-//        Payment payment = PaymentFactory.createPayment(
-//                "PAY123456", "2500", false, "2005-03-04", "1001");
-//
-//        if (payment != null) {
-//            System.out.println("Payment successfully created: " + payment);
-//        } else {
-//            System.out.println("Failed to create Payment");
-//        }
+
+          Payment payment = PaymentFactory.createPayment(
+               "PAY123456", "2500", false, "2005-03-04", "1001");
+
+          if (payment != null) {
+          System.out.println("Payment successfully created: " + payment);
+            } else {
+           System.out.println("Failed to create Payment");
+       }
     }
 }
 
