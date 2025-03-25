@@ -5,6 +5,7 @@ import za.ac.cput.domain.factory.StaffFactory;
 import za.ac.cput.domain.factory.PaymentFactory;
 import za.ac.cput.domain.factory.MaintenanceRequestFactory;
 import za.ac.cput.domain.factory.StudentFactory;
+import za.ac.cput.domain.factory.RoomFactory;
 import java.time.LocalDateTime;
 
 public class Main {
@@ -33,9 +34,6 @@ public class Main {
             System.out.println("Failed to create Payment");
         }
 
-        LocalDateTime requestDate = LocalDateTime.now();
-        LocalDateTime completionDate = LocalDateTime.now().plusDays(2);
-
         MaintenanceRequest request = new MaintenanceRequest.Builder("MR101", "STU230640", "R001",
                 "Broken door", LocalDateTime.now())
                 .status("In Progress")
@@ -44,6 +42,8 @@ public class Main {
                 .completionDate(LocalDateTime.now().plusHours(2))
                 .build();
 
+        LocalDateTime requestDate = LocalDateTime.now();
+        LocalDateTime completionDate = LocalDateTime.now().plusDays(2);
 
         if (request != null) {
             System.out.println("Maintenance Request Created Successfully:");
@@ -61,5 +61,8 @@ public class Main {
         } else {
            System.out.println("Student is null");
         }
+
+        Room room = RoomFactory.createRoom("R002", 002, "Single", "Occupied", 2, "Eldorado");
+        System.out.println(room);
     }
 }
