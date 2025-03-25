@@ -4,18 +4,18 @@ import java.time.LocalDate;
 
 public class Payment {
     private String paymentID;
-    private Double amountPaid;
+    private Double amount;
     private Boolean status;
     private LocalDate paymentDate;
-    private String studentID;
+    private String studentId;
 
 
     private Payment(Builder builder) {
         this.paymentID = builder.paymentID;
-        this.amountPaid = builder.amountPaid;
+        this.amount = builder.amount;
         this.status = builder.status;
         this.paymentDate = builder.paymentDate;
-        this.studentID = builder.studentID;
+        this.studentId = builder.studentId;
     }
 
 
@@ -23,8 +23,8 @@ public class Payment {
         return paymentID;
     }
 
-    public Double getAmountPaid() {
-        return amountPaid;
+    public Double getAmount() {
+        return amount;
     }
 
     public Boolean getStatus() {
@@ -36,34 +36,34 @@ public class Payment {
     }
 
     public String getStudentID() {
-        return studentID;
+        return studentId;
     }
 
     @Override
     public String toString() {
         return "Payment{" +
                 "paymentID='" + paymentID + '\'' +
-                ", amountPaid=" + amountPaid +
+                ", amount=" + amount +
                 ", status=" + status +
                 ", paymentDate=" + paymentDate +
-                ", studentID='" + studentID + '\'' +
+                ", studentID='" + studentId + '\'' +
                 '}';
     }
 
     public static class Builder {
         private String paymentID;
-        private Double amountPaid;
+        private Double amount;
         private Boolean status;
         private LocalDate paymentDate;
-        private String studentID;
+        private String studentId;
 
         public Builder paymentID(String paymentID) {
             this.paymentID = paymentID;
             return this;
         }
 
-        public Builder amountPaid(Double amountPaid) {
-            this.amountPaid = amountPaid;
+        public Builder amount(Double amount) {
+            this.amount = amount;
             return this;
         }
 
@@ -76,8 +76,8 @@ public class Payment {
             this.paymentDate = paymentDate;
             return this;
         }
-        public Builder studentID(String studentID) {
-            this.studentID = studentID;
+        public Builder studentId(String studentID) {
+            this.studentId = studentId;
             return this;
         }
 
