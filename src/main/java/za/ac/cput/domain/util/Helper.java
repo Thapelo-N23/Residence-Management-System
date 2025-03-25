@@ -109,6 +109,14 @@ public class Helper {
         }
     }
 //Student Helper
+
+    public static boolean isValidStudentId(String studentId) {
+        if (studentId == null || !studentId.matches("STU\\d{6}")) { // Format: STU123456
+            System.out.println("❌ Invalid Student ID: " + studentId + " (Must follow 'STU' + 6 digits)");
+            return false;
+        }
+        return true;
+    }
     public static boolean isValidPhoneNumber(String phoneNumber) {
 
         return phoneNumber != null && phoneNumber.matches("\\d{10}");
