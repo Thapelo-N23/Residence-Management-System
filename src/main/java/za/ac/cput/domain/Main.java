@@ -33,7 +33,7 @@ public class Main {
         // Create staff
         Staff staff = null;
         if (leader != null) {
-            staff = StaffFactory.createStaff("STF654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker", leader.getLeaderID());
+            staff = StaffFactory.createStaff("STF654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
         }
 
         if (staff != null) {
@@ -42,7 +42,7 @@ public class Main {
             System.out.println("Staff is null");
         }
 
-        // Create payment (Fixed amount type)
+        // Create payment
         Payment payment = null;
         if (student != null) {
             payment = PaymentFactory.createPayment("PAY123456", 2500.89, false, "2025-03-28", student.getStudentId());
