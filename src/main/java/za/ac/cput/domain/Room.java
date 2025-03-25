@@ -1,6 +1,6 @@
-package za.ac.cput;
+package za.ac.cput.domain;
 
-public class RoomEntity {
+public class Room {
 
         private String roomID;
         private Integer roomNumber;
@@ -9,7 +9,8 @@ public class RoomEntity {
         private Integer floorNumber;
         private String floorName;
 
-        public RoomEntity() {
+        public Room(String roomID, Integer roomNumber, String roomType,
+                    String roomStatus, Integer floorNumber, String floorName) {
             this.roomID = roomID;
             this.roomNumber = roomNumber;
             this.roomType = roomType;
@@ -17,8 +18,32 @@ public class RoomEntity {
             this.floorNumber = floorNumber;
             this.floorName = floorName;
         }
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomID='" + roomID + '\'' +
+                ", roomNumber=" + roomNumber +
+                ", roomType='" + roomType + '\'' +
+                ", roomStatus='" + roomStatus + '\'' +
+                ", floorNumber=" + floorNumber +
+                ", floorName='" + floorName + '\'' +
+                '}';
+    }
 
-        public static class Builder {
+    public boolean isRoomIdEmpty() {
+            return false;
+    }
+
+    public String getRoomID() {
+            return roomID;
+    }
+
+    public Room setRoomID(String r001) {
+            this.roomID = roomID;
+            return this;
+    }
+
+    public static class Builder {
             private String roomID;
             private Integer roomNumber;
             private String roomType;
@@ -26,18 +51,19 @@ public class RoomEntity {
             private Integer floorNumber;
             private String floorName;
 
-            public Builder copy(RoomEntity roomEntity) {
-                this.roomID = roomEntity.roomID;
-                this.roomNumber = roomEntity.roomNumber;
-                this.roomType = roomEntity.roomType;
-                this.roomStatus = roomEntity.roomStatus;
-                this.floorNumber =roomEntity.floorNumber;
-                this.floorName = roomEntity.floorName;
+            public Builder copy(Room room) {
+                this.roomID = room.roomID;
+                this.roomNumber = room.roomNumber;
+                this.roomType = room.roomType;
+                this.roomStatus = room.roomStatus;
+                this.floorNumber = room.floorNumber;
+                this.floorName = room.floorName;
                 return this;
             }
 
-            public RoomEntity build(){
-                return new RoomEntity();
+            public Room build(){
+
+                return new Room(roomID, roomNumber, roomType, roomStatus, floorNumber, floorName);
             }
 
             public String getRoomID() {
@@ -94,18 +120,11 @@ public class RoomEntity {
                 return this;
             }
 
-            @Override
-            public String toString() {
-                return "RoomEntity{" +
-                        "roomID='" + roomID + '\'' +
-                        ", roomNumber=" + roomNumber +
-                        ", roomType='" + roomType + '\'' +
-                        ", roomStatus='" + roomStatus + '\'' +
-                        ", floorNumber=" + floorNumber +
-                        ", floorName='" + floorName + '\'' +
-                        '}';
-            }
 
+            public Builder setRoomId(String roomID) {
+                this.roomID = roomID;
+                return this;
+            }
         }
     }
 
