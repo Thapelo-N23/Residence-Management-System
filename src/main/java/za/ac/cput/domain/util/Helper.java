@@ -35,12 +35,9 @@ public class Helper {
     //Staff Helper
     //validate the stuff ID if it meets the requirements
     public static boolean isValid(String staffID) {
-        if (staffID == null || !staffID.matches("STF\\d{6}")) { // Format: STF123456
-            System.out.println("❌ Invalid Staff ID: " + staffID + " (Must follow 'STF' + 6 digits)");
-            return false;
-        }
-        return true;
+        return staffID != null && staffID.matches("\\d{6}");
     }
+
 
     //Payment Helper
     // Validate payment ID format (must be 'PAY' followed by exactly 6 digits)

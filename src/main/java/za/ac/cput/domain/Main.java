@@ -19,21 +19,10 @@ public class Main {
             System.out.println("Leader is null");
         }
 
-        // Create student before using it in Payment
-        Student student = StudentFactory.createStudent(
-                "STU230640", "Lisa", "Ngozi", "lisa.ngozi@gmail.com",
-                "0812345678", true, "R002",leader.getLeaderID() );
-
-        if (student != null) {
-            System.out.println("Student created: " + student);
-        } else {
-            System.out.println("Student is null");
-        }
-
         // Create staff
         Staff staff = null;
         if (leader != null) {
-            staff = StaffFactory.createStaff("STF123456", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker", leader.getLeaderID());
+            staff = StaffFactory.createStaff("STF123456", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
         }
 
         if (staff != null) {
@@ -42,6 +31,24 @@ public class Main {
             System.out.println("Staff is null");
         }
 
+        // Create room (Fixed incorrect room number formatting)
+        Room room = RoomFactory.createRoom("R002", 2, "Single", "Occupied", 2, "Eldorado");
+
+        if (room != null) {
+            System.out.println("Room successfully created: " + room);
+        } else {
+            System.out.println("Failed to create Room.");
+        }
+        // Create student before using it in Payment
+        Student student = StudentFactory.createStudent(
+                "STU230640", "Lisa", "Ngozi", "lisa.ngozi@gmail.com",
+                "0812345678", true, room.getRoomID(),leader.getLeaderID() );
+
+        if (student != null) {
+            System.out.println("Student created: " + student);
+        } else {
+            System.out.println("Student is null");
+        }
         // Create payment
         Payment payment = PaymentFactory.createPayment(
 
@@ -53,12 +60,13 @@ public class Main {
             System.out.println("Failed to create Payment");
         }
 
+
         // Create maintenance request
         LocalDateTime requestDate = LocalDateTime.now();
         LocalDateTime completionDate = requestDate.plusDays(2);
 
         MaintenanceRequest request = MaintenanceRequestFactory.createMaintenanceRequest(
-                "REQ123456", student.getStudentId(), "R001", "Broken door",
+                "REQ123456", student.getStudentId(),room.getRoomID(), "Broken door",
                 requestDate, "Completed" , staff.getStaffID(),
                 "Resolved by replacing the door handle", completionDate);
 
@@ -66,16 +74,6 @@ public class Main {
             System.out.println("Maintenance Request successfully created: " + request);
         } else {
             System.out.println("Failed to create Maintenance Request");
-        }
-
-
-        // Create room (Fixed incorrect room number formatting)
-        Room room = RoomFactory.createRoom("R002", 2, "Single", "Occupied", 2, "Eldorado");
-
-        if (room != null) {
-            System.out.println("Room successfully created: " + room);
-        } else {
-            System.out.println("Failed to create Room.");
         }
     }
 }
