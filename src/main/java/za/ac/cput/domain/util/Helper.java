@@ -81,9 +81,9 @@ public class Helper {
     }
 
    // Maintenance Request Helper
-    public static boolean isValidRequestId(String requestID) {
-        if (requestID == null || !requestID.matches("^REQ\\d{6}$")) {
-            System.out.println("!Invalid Request ID: " + requestID + " (Must be 'REQ' followed by 6 digits).");
+    public static boolean isValidRequestId(String requestId) {
+        if (requestId == null || !requestId.matches("^REQ\\d{6}$")) {
+            System.out.println("!Invalid Request ID: " + requestId + " (Must be 'REQ' followed by 6 digits).");
             return false;
         }
         return true;
