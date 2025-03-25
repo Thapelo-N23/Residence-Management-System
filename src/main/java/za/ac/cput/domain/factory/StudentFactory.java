@@ -9,7 +9,7 @@ public class StudentFactory {
                                         String phoneNumber, Boolean status, String roomId, String leaderId) {
 
         if (Helper.isNullOrEmpty(studentId)) {
-            System.out.println("Warning: Provided Student ID is missing or Invalid. Generating a new ID...");
+            System.out.println("Warning: Provided Student ID is missing or invalid. Generating a new ID...");
             studentId = Helper.generateId();
         }
 
