@@ -3,11 +3,11 @@ package za.ac.cput.domain;
 import java.time.LocalDate;
 
 public class Payment {
-    private String paymentID;
+    private String paymentID; // PK
     private Double amount;
     private Boolean status;
     private LocalDate paymentDate;
-    private String studentId;
+    private String studentId; // FK References Student
 
 
     private Payment(Builder builder) {
@@ -35,7 +35,7 @@ public class Payment {
         return paymentDate;
     }
 
-    public String getStudentID() {
+    public String getStudentId() {
         return studentId;
     }
 
@@ -76,7 +76,7 @@ public class Payment {
             this.paymentDate = paymentDate;
             return this;
         }
-        public Builder studentId(String studentID) {
+        public Builder studentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
