@@ -6,7 +6,7 @@ import za.ac.cput.domain.util.Helper;
 public class StudentFactory {
 
     public static Student createStudent(String studentId, String firstName, String lastName, String email,
-                                        String phoneNumber, Boolean status, String roomId, String leaderId) {
+                                        String phoneNumber, Boolean status, String roomID, String leaderId) {
 
         if (Helper.isNullOrEmpty(studentId)) {
             System.out.println("Warning: Provided Student ID is missing or Invalid. Generating a new ID...");
@@ -14,7 +14,7 @@ public class StudentFactory {
         }
 
         if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName) || Helper.isNullOrEmpty(email) ||
-                Helper.isNullOrEmpty(phoneNumber) || status == null || Helper.isNullOrEmpty(roomId) || Helper.isNullOrEmpty(leaderId)) {
+                Helper.isNullOrEmpty(phoneNumber) || status == null || Helper.isNullOrEmpty(roomID) || Helper.isNullOrEmpty(leaderId)) {
             System.out.println("Warning: Some required fields are missing.");
             return null;
         }
@@ -36,7 +36,7 @@ public class StudentFactory {
                 .email(email)
                 .phoneNumber(phoneNumber)
                 .status(status)
-                .roomId(roomId)
+                .roomId(roomID)
                 .leaderId(leaderId)
                 .build();
     }
