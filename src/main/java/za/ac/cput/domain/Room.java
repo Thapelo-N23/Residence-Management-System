@@ -61,6 +61,7 @@ public class Room {
                 return this;
             }
 
+
             public Room build(){
 
                 return new Room(roomID, roomNumber, roomType, roomStatus, floorNumber, floorName);

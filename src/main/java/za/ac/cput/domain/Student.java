@@ -7,7 +7,7 @@ public class Student {
     private String email;
     private String phoneNumber;
     private Boolean status;
-    private String roomId;
+    private String roomID;
     private String leaderId;
 
     private Student(Builder builder) {
@@ -17,7 +17,7 @@ public class Student {
         this.email = builder.email;
         this.phoneNumber = builder.phoneNumber;
         this.status = builder.status;
-        this.roomId = builder.roomId;
+        this.roomID = builder.roomID;
         this.leaderId = builder.leaderId;
     }
 
@@ -45,8 +45,8 @@ public class Student {
         return status;
     }
 
-    public String getRoomId() {
-        return roomId;
+    public String getRoomID() {
+        return roomID;
     }
 
     public String getLeaderId() {
@@ -62,7 +62,7 @@ public class Student {
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", status=" + (status ? "Active" : "Inactive") +
-                ", roomId='" + roomId + '\'' +
+                ", roomId='" + roomID + '\'' +
                 ", leaderId='" + leaderId + '\'' +
                 '}';
     }
@@ -74,7 +74,7 @@ public class Student {
         private String email;
         private String phoneNumber;
         private Boolean status;
-        private String roomId;
+        private String roomID;
         private String leaderId;
 
         public Builder studentId(String studentId) {
@@ -107,8 +107,8 @@ public class Student {
             return this;
         }
 
-        public Builder roomId(String roomId) {
-            this.roomId = roomId;
+        public Builder roomId(String roomID) {
+            this.roomID = roomID;
             return this;
         }
 
