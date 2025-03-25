@@ -8,7 +8,7 @@ public class MaintenanceRequest {
     private String roomId;
     private String issueDescription;
     private LocalDateTime requestDate;
-    private String status;
+    private boolean status; // Changed from String to boolean
     private String staffId;
     private String resolutionNotes;
     private LocalDateTime completionDate;
@@ -45,8 +45,12 @@ public class MaintenanceRequest {
         return requestDate;
     }
 
-    public String getStatus() {
+    public boolean isCompleted() { // Updated getter for status
         return status;
+    }
+
+    public String getStatusString() { // Converts boolean status to a readable format
+        return status ? "Completed" : "Pending";
     }
 
     public String getStaffId() {
@@ -69,7 +73,7 @@ public class MaintenanceRequest {
                 ", roomId='" + roomId + '\'' +
                 ", issueDescription='" + issueDescription + '\'' +
                 ", requestDate=" + requestDate +
-                ", status='" + status + '\'' +
+                ", status='" + getStatusString() + '\'' + // Converts boolean to "Completed"/"Pending"
                 ", staffId='" + staffId + '\'' +
                 ", resolutionNotes='" + resolutionNotes + '\'' +
                 ", completionDate=" + completionDate +
@@ -82,7 +86,7 @@ public class MaintenanceRequest {
         private String roomId;
         private String issueDescription;
         private LocalDateTime requestDate;
-        private String status;
+        private boolean status;
         private String staffId;
         private String resolutionNotes;
         private LocalDateTime completionDate;
@@ -93,10 +97,10 @@ public class MaintenanceRequest {
             this.roomId = roomId;
             this.issueDescription = issueDescription;
             this.requestDate = requestDate;
-            this.status = "Pending";
+            this.status = false; // Default to "Pending" (false)
         }
 
-        public Builder status(String status) {
+        public Builder status(boolean status) {
             this.status = status;
             return this;
         }

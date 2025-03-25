@@ -44,6 +44,7 @@ public class Main {
 
         // Create payment
         Payment payment = PaymentFactory.createPayment(
+
                 "PAY123456", "2500", false, "2005-03-04", student.getStudentId());
 
         if (payment != null) {
@@ -56,19 +57,17 @@ public class Main {
         LocalDateTime requestDate = LocalDateTime.now();
         LocalDateTime completionDate = requestDate.plusDays(2);
 
-        MaintenanceRequest request = new MaintenanceRequest.Builder("MR101", student.getStudentId(), "R001",
-                "Broken door", requestDate)
-                .status("In Progress")
-                .staffId("213213")
-                .resolutionNotes("Resolved by replacing the door handle")
-                .completionDate(completionDate)
-                .build();
+        MaintenanceRequest request = MaintenanceRequestFactory.createMaintenanceRequest(
+                "REQ123456", student.getStudentId(), "R001", "Broken door",
+                requestDate, "Completed" , staff.getStaffID(),
+                "Resolved by replacing the door handle", completionDate);
 
         if (request != null) {
-            System.out.println("Maintenance Request Created Successfully: " + request);
+            System.out.println("Maintenance Request successfully created: " + request);
         } else {
-            System.out.println("Failed to create Maintenance Request. Please check input values.");
+            System.out.println("Failed to create Maintenance Request");
         }
+
 
         // Create room (Fixed incorrect room number formatting)
         Room room = RoomFactory.createRoom("R002", 2, "Single", "Occupied", 2, "Eldorado");
