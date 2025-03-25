@@ -1,7 +1,7 @@
 package za.ac.cput.domain.factory;
 import za.ac.cput.domain.Staff;
 import za.ac.cput.domain.util.Helper;
-import za.ac.cput.domain.Residence;
+
 
 
 public class StaffFactory {
