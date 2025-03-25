@@ -40,7 +40,7 @@ public class Main {
         if (student != null) {
             System.out.println("Student is successfully created: " + student);
         } else {
-            System.out.println("student is null");
+            System.out.println(Student is null");
         }
     }
 }
