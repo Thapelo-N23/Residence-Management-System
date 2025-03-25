@@ -18,7 +18,7 @@ public class Main {
             System.out.println("leader is null");
         }
 
-        Staff staff = StaffFactory.createStaff("213213", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
+        Staff staff = StaffFactory.createStaff("213213", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker",leader.getLeaderID());
         if (staff != null) {
             System.out.println("staff was created: " + staff);
         } else {
