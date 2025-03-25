@@ -116,4 +116,9 @@ public class Student {
             this.leaderId = leaderId;
             return this;
         }
-    }}
+
+        public Student build() {
+            return new Student(this);
+        }
+    }
+}
