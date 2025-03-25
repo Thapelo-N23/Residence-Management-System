@@ -33,6 +33,7 @@ public class Helper {
     }
 
     //Staff Helper
+    //validate the stuff ID if it meets the requirements
     public static boolean isValid(String staffId) {
         if (staffId == null || !staffId.matches("STF\\d{6}")) { // Format: STF123456
             System.out.println("❌ Invalid Staff ID: " + staffId + " (Must follow 'STF' + 6 digits)");
