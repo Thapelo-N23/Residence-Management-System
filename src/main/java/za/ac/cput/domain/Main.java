@@ -33,8 +33,8 @@ public class Main {
             System.out.println("Failed to create Payment");
         }
 
-        LocalDateTime.now();
-        LocalDateTime.now();
+        LocalDateTime requestDate = LocalDateTime.now();
+        LocalDateTime completionDate = LocalDateTime.now().plusDays(2);
 
         MaintenanceRequest request = new MaintenanceRequest.Builder("MR101", "STU230640", "R001",
                 "Broken door", LocalDateTime.now())
