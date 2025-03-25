@@ -1,13 +1,14 @@
 package za.ac.cput.domain;
 
 public class Student {
-    private int studentId;
+    private String studentId;
     private String firstName;
     private String lastName;
     private String email;
     private String phoneNumber;
-    private int roomNumber;
     private Boolean status;
+    private String roomId;
+    private String leaderId;
 
     private Student(Builder builder) {
         this.studentId = builder.studentId;
@@ -15,11 +16,12 @@ public class Student {
         this.lastName = builder.lastName;
         this.email = builder.email;
         this.phoneNumber = builder.phoneNumber;
-        this.roomNumber = builder.roomNumber;
         this.status = builder.status;
+        this.roomId = builder.roomId;
+        this.leaderId = builder.leaderId;
     }
 
-    public int getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
@@ -39,37 +41,43 @@ public class Student {
         return phoneNumber;
     }
 
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
     public Boolean getStatus() {
         return status;
+    }
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public String getLeaderId() {
+        return leaderId;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
+                "studentId='" + studentId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", roomNumber=" + roomNumber +
                 ", status=" + (status ? "Active" : "Inactive") +
+                ", roomId='" + roomId + '\'' +
+                ", leaderId='" + leaderId + '\'' +
                 '}';
     }
 
     public static class Builder {
-        private int studentId;
+        private String studentId;
         private String firstName;
         private String lastName;
         private String email;
         private String phoneNumber;
-        private int roomNumber;
         private Boolean status;
+        private String roomId;
+        private String leaderId;
 
-        public Builder studentId(int studentId) {
+        public Builder studentId(String studentId) {
             this.studentId = studentId;
             return this;
         }
@@ -94,20 +102,23 @@ public class Student {
             return this;
         }
 
-        public Builder roomNumber(int roomNumber) {
-            this.roomNumber = roomNumber;
-            return this;
-        }
-
         public Builder status(Boolean status) {
             this.status = status;
             return this;
         }
 
+        public Builder roomId(String roomId) {
+            this.roomId = roomId;
+            return this;
+        }
+
+        public Builder leaderId(String leaderId) {
+            this.leaderId = leaderId;
+            return this;
+        }
 
         public Student build() {
             return new Student(this);
         }
-
     }
 }
