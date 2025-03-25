@@ -5,6 +5,7 @@ import za.ac.cput.domain.factory.StaffFactory;
 import za.ac.cput.domain.factory.PaymentFactory;
 import za.ac.cput.domain.factory.MaintenanceRequestFactory;
 import za.ac.cput.domain.factory.StudentFactory;
+import za.ac.cput.domain.factory.RoomFactory;
 import java.time.LocalDateTime;
 
 public class Main {
@@ -61,5 +62,8 @@ public class Main {
         } else {
            System.out.println("Student is null");
         }
+
+        Room room = RoomFactory.createRoom("R002", 002, "Single", "Occupied", 2, "Eldorado");
+        System.out.println(room);
     }
 }
