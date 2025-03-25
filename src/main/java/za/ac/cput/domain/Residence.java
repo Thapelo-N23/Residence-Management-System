@@ -1,18 +1,21 @@
 package za.ac.cput.domain;
 
-import java.util.Locale;
+public class Residence {
 
-public class ResidenceLeader {
     private  String leaderID;
     private  String name;
     private  String email;
     private  String assignedBlock;
 
-    private ResidenceLeader(Builder builder) {
+    private Residence(Builder builder) {
         this.leaderID = builder.leaderID;
         this.name = builder.name;
         this.email = builder.email;
         this.assignedBlock = builder.assignedBlock;
+    }
+
+    public String getLeaderID() {
+        return leaderID;
     }
 
 
@@ -22,24 +25,39 @@ public class ResidenceLeader {
         private String email;
         private String assignedBlock;
 
-        public Builder leaderID(String leaderID) {
+
+
+
+        public Builder setLeaderID(String leaderID) {
             this.leaderID = leaderID;
             return this;
         }
-        public Builder name(String name) {
+        public Builder setName(String name) {
             this.name = name;
             return this;
         }
-        public Builder email(String email) {
+        public Builder setEmail(String email) {
             this.email = email;
             return this;
         }
-        public Builder assignedBlock(String assignedBlock) {
+        public Builder setAssignedBlock(String assignedBlock) {
             this.assignedBlock = assignedBlock;
             return this;
         }
-        public ResidenceLeader build() {
-            return new ResidenceLeader(this);
+
+        public Residence build() {
+            return new Residence(this);
         }
+
+
+    }
+    @Override
+    public String toString() {
+        return "Builder{" +
+                "leaderID='" + leaderID + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", assignedBlock='" + assignedBlock + '\'' +
+                '}';
     }
 }
