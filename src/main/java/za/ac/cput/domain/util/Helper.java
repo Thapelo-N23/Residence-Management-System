@@ -1,6 +1,7 @@
 package za.ac.cput.domain.util;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
@@ -77,10 +78,33 @@ public class Helper {
             return null;
         }
     }
-    //Student Helper
-    public static boolean isValidPhoneNumber(String phoneNumber) {
-       //for
-        return phoneNumber != null && phoneNumber.matches("\\d{10}");
+
+   // Maintenance Request Helper
+    public static boolean isValidRequestId(String requestId) {
+        if (requestId == null || !requestId.matches("^REQ\\d{6}$")) {
+            System.out.println("!Invalid Request ID: " + requestId + " (Must be 'REQ' followed by 6 digits).");
+            return false;
+        }
+        return true;
     }
 
+    public static boolean isValidStatusForRequest(String status) {
+        String[] validStatuses = {"Pending", "In Progress", "Completed", "Cancelled"};
+        for (String validStatus : validStatuses) {
+            if (validStatus.equalsIgnoreCase(status)) {
+                return true;
+            }
+        }
+        System.out.println("!Invalid Status: " + status + " (Must be 'Pending', 'In Progress', 'Completed', or 'Cancelled').");
+        return false;
+    }
+
+    public static LocalDateTime parseDateTime(String dateTime) {
+        try {
+            return LocalDateTime.parse(dateTime);
+        } catch (DateTimeParseException e) {
+            System.out.println("!Invalid Date-Time format: " + dateTime + ". Expected format: YYYY-MM-DDTHH:MM:SS.");
+            return null;
+        }
+    }
 }
