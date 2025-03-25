@@ -42,7 +42,7 @@ public class Main {
                 .completionDate(LocalDateTime.now().plusHours(2))
                 .build();
 
-        LocalDateTime requestDate = LocalDateTime.now();
+        LocalDateTime.now();
         LocalDateTime completionDate = LocalDateTime.now().plusDays(2);
 
         if (request != null) {
