@@ -61,7 +61,7 @@ public class Student {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", status=" + (status ? "Activ" : "Inactive") +
+                ", status=" + (status ? "Active" : "Inactive") +
                 ", roomId='" + roomId + '\'' +
                 ", leaderId='" + leaderId + '\'' +
                 '}';
