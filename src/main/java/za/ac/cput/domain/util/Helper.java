@@ -77,4 +77,10 @@ public class Helper {
             return null;
         }
     }
+    //Student Helper
+    public static boolean isValidPhoneNumber(String phoneNumber) {
+
+        return phoneNumber != null && phoneNumber.matches("\\d{10}");
+    }
+
 }

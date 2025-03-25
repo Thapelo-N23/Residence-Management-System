@@ -3,6 +3,7 @@ package za.ac.cput.domain;
 import za.ac.cput.domain.factory.ResidenceFactory;
 import za.ac.cput.domain.factory.StaffFactory;
 import za.ac.cput.domain.factory.PaymentFactory;
+import za.ac.cput.domain.factory.StudentFactory;
 
 
 public class Main {
@@ -31,8 +32,19 @@ public class Main {
             } else {
            System.out.println("Failed to create Payment");
        }
+
+        Student student = StudentFactory.createStudent(
+                "STU230640", "Lisa", "Ngozi", "lisa.ngozi@gmail.com",
+                "0812345678", true, "R002", "123456789");
+
+        if (student != null) {
+            System.out.println("Student is successfully created: " + student);
+        } else {
+            System.out.println("Student is null");
+        }
     }
 }
+
 
 
 
