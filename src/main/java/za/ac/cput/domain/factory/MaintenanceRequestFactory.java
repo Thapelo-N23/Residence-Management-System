@@ -23,7 +23,7 @@ public class MaintenanceRequestFactory {
         }
 
         // Convert status String to boolean
-        boolean statusBoolean = "Completed".equalsIgnoreCase(status);
+        boolean statusBoolean = "Completed.".equalsIgnoreCase(status);
 
         return new MaintenanceRequest.Builder(requestId, studentId, roomId, issueDescription, requestDate)
                 .status(statusBoolean) // Updated to boolean
