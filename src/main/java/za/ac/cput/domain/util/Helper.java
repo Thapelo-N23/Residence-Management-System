@@ -34,8 +34,9 @@ public class Helper {
 
     //Staff Helper
     //validate the stuff ID if it meets the requirements
+
     public static boolean isValid(String staffID) {
-        return staffID != null && staffID.matches("\\d{6}");
+        return staffID != null && staffID.matches("\\d{9}");
     }
 
 
@@ -79,7 +80,7 @@ public class Helper {
 
    // Maintenance Request Helper
     public static boolean isValidRequestId(String requestId) {
-        if (requestId == null || !requestId.matches("^REQ\\d{6}$")) {
+        if (requestId == null || !requestId.matches("^REQ\\d{9}$")) {
             System.out.println("!Invalid Request ID: " + requestId + " (Must be 'REQ' followed by 6 digits).");
             return false;
         }
