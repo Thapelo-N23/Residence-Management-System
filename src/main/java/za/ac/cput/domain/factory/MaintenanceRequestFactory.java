@@ -1,6 +1,6 @@
 package za.ac.cput.domain.factory;
 
-import za.ac.cput.domain.MaintenanceRequest;
+import za.ac.cput.domain.entities.MaintenanceRequest;
 import za.ac.cput.domain.util.Helper;
 import java.time.LocalDateTime;
 
