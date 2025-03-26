@@ -13,7 +13,7 @@ public class MaintenanceRequestFactory {
         }
 
         if (Helper.isNullOrEmpty(roomId)) {
-            System.out.println("!Error: Room ID must not be empty");
+            System.out.println("!Error: Room ID must not be empty.");
             return null;
         }
 
