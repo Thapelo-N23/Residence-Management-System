@@ -1,5 +1,6 @@
 package za.ac.cput.domain;
 
+import za.ac.cput.domain.entities.*;
 import za.ac.cput.domain.factory.ResidenceFactory;
 import za.ac.cput.domain.factory.StaffFactory;
 import za.ac.cput.domain.factory.PaymentFactory;

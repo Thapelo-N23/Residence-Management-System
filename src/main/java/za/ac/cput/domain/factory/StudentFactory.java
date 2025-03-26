@@ -1,9 +1,6 @@
 package za.ac.cput.domain.factory;
 
-import za.ac.cput.domain.Student;
-import za.ac.cput.domain.util.Helper;
-
-import za.ac.cput.domain.Student;
+import za.ac.cput.domain.entities.Student;
 import za.ac.cput.domain.util.Helper;
 
 public class StudentFactory {

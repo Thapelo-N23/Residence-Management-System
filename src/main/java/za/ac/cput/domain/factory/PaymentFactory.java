@@ -1,9 +1,7 @@
 package za.ac.cput.domain.factory;
 
-import za.ac.cput.domain.Payment;
+import za.ac.cput.domain.entities.Payment;
 import za.ac.cput.domain.util.Helper;
-import java.time.LocalDate;
-
 import java.time.LocalDate;
 
 public class PaymentFactory {

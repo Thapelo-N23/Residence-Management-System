@@ -1,5 +1,5 @@
 package za.ac.cput.domain.factory;
-import za.ac.cput.domain.Staff;
+import za.ac.cput.domain.entities.Staff;
 import za.ac.cput.domain.util.Helper;
 
 

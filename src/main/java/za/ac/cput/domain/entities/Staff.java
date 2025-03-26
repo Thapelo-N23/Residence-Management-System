@@ -1,4 +1,4 @@
-package za.ac.cput.domain;
+package za.ac.cput.domain.entities;
 
 public class Staff {
     private String staffID;
