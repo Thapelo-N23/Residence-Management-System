@@ -34,7 +34,7 @@ public class Main {
         // Create staff
         Staff staff = null;
         if (leader != null) {
-            staff = StaffFactory.createStaff("123654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
+            staff = StaffFactory.createStaff("STA654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
         }
 
         if (staff != null) {
@@ -62,7 +62,7 @@ public class Main {
         MaintenanceRequest request = null;
         if (student != null && staff != null) {
             request = MaintenanceRequestFactory.createMaintenanceRequest(
-                    "123123456", student.getStudentId(), "R001", "Broken door",
+                    "REQ123456", student.getStudentId(), "R001", "Broken door",
                     requestDate, "Completed",  // Boolean status instead of string
                     staff.getStaffID(), "Resolved by replacing the door handle", completionDate);
         }
