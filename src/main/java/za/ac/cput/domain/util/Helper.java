@@ -20,7 +20,7 @@ public  static boolean isNullOrEmpty(String str) {
     }
     public static boolean isValidId(String leaderId) {
         if (leaderId == null || !leaderId.matches("\\d{9}")) { // Only numbers, length 9
-            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 6-9 digits)");
+            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 9 digits)");
             return false;
         }
         return true;

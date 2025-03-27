@@ -14,6 +14,10 @@ public class Residence {
         this.assignedBlock = builder.assignedBlock;
     }
 
+    public Object getleaderId() {
+        return leaderID;
+    }
+
 
     public static class Builder {
         private String leaderID;
