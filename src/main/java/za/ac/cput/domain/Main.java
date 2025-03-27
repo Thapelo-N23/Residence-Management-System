@@ -46,7 +46,7 @@ public class Main {
         // Create payment
         Payment payment = null;
         if (student != null) {
-            payment = PaymentFactory.createPayment("PAY123456", 2500.89, false, "2025-03-28", student.getStudentId());
+            payment = PaymentFactory.createPayment("PAY123456", 2500.89, true, "2025-03-28", student.getStudentId());
         }
 
         if (payment != null) {
