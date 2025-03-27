@@ -18,6 +18,17 @@ public class Residence {
         return leaderID;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAssignedBlock() {
+        return assignedBlock;
+    }
 
     public static class Builder {
         private String leaderID;

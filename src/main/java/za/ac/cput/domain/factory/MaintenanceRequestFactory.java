@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class MaintenanceRequestFactory {
 
     public static MaintenanceRequest createMaintenanceRequest(String requestId, String studentId, String roomId, String issueDescription, LocalDateTime requestDate, String status, String staffId, String resolutionNotes, LocalDateTime completionDate) {
-        if (Helper.isNullOrEmpty(requestId) || !Helper.isValidId(requestId)) {
+        if (Helper.isNullOrEmpty(requestId) || !Helper.isValidRequestId(requestId)) {
             System.out.println("!Warning: Provided Request ID is invalid or missing. Generating a new ID...");
             requestId = Helper.generateId();
         }
