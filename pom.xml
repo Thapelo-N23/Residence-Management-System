@@ -15,8 +15,7 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>commons-validator</groupId>
+        <dependency>   <groupId>commons-validator</groupId>
             <artifactId>commons-validator</artifactId>
             <version>1.7</version>
         </dependency>
@@ -31,6 +30,7 @@
             <groupId>org.glassfish.expressly</groupId>
             <artifactId>expressly</artifactId>
             <version>5.0.0</version>
+
         </dependency>
         
     </dependencies>

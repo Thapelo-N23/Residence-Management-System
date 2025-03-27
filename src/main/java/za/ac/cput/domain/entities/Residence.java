@@ -1,4 +1,4 @@
-package za.ac.cput.domain;
+package za.ac.cput.domain.entities;
 
 public class Residence {
 
@@ -14,12 +14,30 @@ public class Residence {
         this.assignedBlock = builder.assignedBlock;
     }
 
+    public String getLeaderID() {
+        return leaderID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getAssignedBlock() {
+        return assignedBlock;
+    }
 
     public static class Builder {
         private String leaderID;
         private String name;
         private String email;
         private String assignedBlock;
+
+
+
 
         public Builder setLeaderID(String leaderID) {
             this.leaderID = leaderID;
@@ -37,6 +55,7 @@ public class Residence {
             this.assignedBlock = assignedBlock;
             return this;
         }
+
         public Residence build() {
             return new Residence(this);
         }

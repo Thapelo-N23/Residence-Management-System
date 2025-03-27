@@ -1,5 +1,6 @@
 package za.ac.cput.domain;
 
+import za.ac.cput.domain.entities.*;
 import za.ac.cput.domain.factory.ResidenceFactory;
 import za.ac.cput.domain.factory.StaffFactory;
 import za.ac.cput.domain.factory.PaymentFactory;
@@ -12,21 +13,41 @@ public class Main {
 
     public static void main(String[] args) {
         Residence leader = ResidenceFactory.createResidence("123456789", "Thapelo", "thape@gmail.com", "Block D");
+
         if (leader != null) {
-            System.out.println("leader is created: " + leader);
+            System.out.println("Leader created: " + leader);
         } else {
-            System.out.println("leader is null");
+            System.out.println("Leader is null");
         }
 
-        Staff staff = StaffFactory.createStaff("213213", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
+        // Create student before using it in Payment
+        Student student = StudentFactory.createStudent(
+                "STU230640", "Lisa", "Ngozi", "lisa.ngozi@gmail.com",
+                "0812345678", true, "R002", leader != null ? leader.getLeaderID() : null);
+
+        if (student != null) {
+            System.out.println("Student created: " + student);
+        } else {
+            System.out.println("Student is null");
+        }
+
+        // Create staff
+        Staff staff = null;
+        if (leader != null) {
+            staff = StaffFactory.createStaff("STA654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
+        }
+
         if (staff != null) {
-            System.out.println("staff was created: " + staff);
+            System.out.println("Staff created: " + staff);
         } else {
             System.out.println("Staff is null");
         }
 
-        Payment payment = PaymentFactory.createPayment(
-                "PAY123456", "2500", false, "2005-03-04", "1001");
+        // Create payment
+        Payment payment = null;
+        if (student != null) {
+            payment = PaymentFactory.createPayment("PAY123456", 2500.89, true, "2025-03-28", student.getStudentId());
+        }
 
         if (payment != null) {
             System.out.println("Payment successfully created: " + payment);
@@ -34,36 +55,31 @@ public class Main {
             System.out.println("Failed to create Payment");
         }
 
+        // Create maintenance request (Fixed status to boolean)
         LocalDateTime requestDate = LocalDateTime.now();
-        LocalDateTime completionDate = LocalDateTime.now().plusDays(2);
+        LocalDateTime completionDate = requestDate.plusDays(2);
 
-        MaintenanceRequest request = new MaintenanceRequest.Builder("MR101", "STU230640", "R001",
-                "Broken door", LocalDateTime.now())
-                .status("In Progress")
-                .staffId("213213")
-                .resolutionNotes("Resolved by replacing the door handle")
-                .completionDate(LocalDateTime.now().plusHours(2))
-                .build();
-
+        MaintenanceRequest request = null;
+        if (student != null && staff != null) {
+            request = MaintenanceRequestFactory.createMaintenanceRequest(
+                    "REQ123456", student.getStudentId(), "R001", "Broken door",
+                    requestDate, "Completed",  // Boolean status instead of string
+                    staff.getStaffID(), "Resolved by replacing the door handle", completionDate);
+        }
 
         if (request != null) {
-            System.out.println("Maintenance Request Created Successfully:");
-            System.out.println(request);
+            System.out.println("Maintenance Request successfully created: " + request);
         } else {
-            System.out.println("!Failed to create Maintenance Request. Please check input values.");
+            System.out.println("Failed to create Maintenance Request");
         }
 
-       Student student = StudentFactory.createStudent(
-               "STU230640", "Lisa", "Ngozi", "lisa.ngozi@gmail.com",
-"0812345678", true, "R002", "123456789");
+        // Create room (Fixed incorrect room number formatting)
+        Room room = RoomFactory.createRoom("R002", 2, "Single", "Occupied", 2, "Eldorado");
 
-        if (student != null) {
-            System.out.println("Student is successfully created: " + student);
+        if (room != null) {
+            System.out.println("Room successfully created: " + room);
         } else {
-           System.out.println("Student is null");
+            System.out.println("Failed to create Room.");
         }
-
-        Room room = RoomFactory.createRoom("R002", 002, "Single", "Occupied", 2, "Eldorado");
-        System.out.println(room);
     }
 }
