@@ -1,9 +1,7 @@
 package za.ac.cput.domain.factory;
 
-import za.ac.cput.domain.Residence;
+import za.ac.cput.domain.entities.Residence;
 import za.ac.cput.domain.util.Helper;
-
-import java.util.UUID;
 
 public class ResidenceFactory {
 

@@ -1,5 +1,6 @@
 package za.ac.cput.domain;
 
+import za.ac.cput.domain.entities.*;
 import za.ac.cput.domain.factory.ResidenceFactory;
 import za.ac.cput.domain.factory.StaffFactory;
 import za.ac.cput.domain.factory.PaymentFactory;
@@ -22,7 +23,7 @@ public class Main {
         // Create student before using it in Payment
         Student student = StudentFactory.createStudent(
                 "STU230640", "Lisa", "Ngozi", "lisa.ngozi@gmail.com",
-                "0812345678", true, "R002",leader.getLeaderID() );
+                "0812345678", true, "R002", leader != null ? leader.getLeaderID() : null);
 
         if (student != null) {
             System.out.println("Student created: " + student);
@@ -33,7 +34,7 @@ public class Main {
         // Create staff
         Staff staff = null;
         if (leader != null) {
-            staff = StaffFactory.createStaff("STF123456", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker", leader.getLeaderID());
+            staff = StaffFactory.createStaff("STA654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
         }
 
         if (staff != null) {
@@ -43,8 +44,10 @@ public class Main {
         }
 
         // Create payment
-        Payment payment = PaymentFactory.createPayment(
-                "PAY123456", "2500", false, "2005-03-04", student.getStudentId());
+        Payment payment = null;
+        if (student != null) {
+            payment = PaymentFactory.createPayment("PAY123456", 2500.89, true, "2025-03-28", student.getStudentId());
+        }
 
         if (payment != null) {
             System.out.println("Payment successfully created: " + payment);
@@ -52,23 +55,7 @@ public class Main {
             System.out.println("Failed to create Payment");
         }
 
-        // Create maintenance request
-        LocalDateTime requestDate = LocalDateTime.now();
-        LocalDateTime completionDate = requestDate.plusDays(2);
 
-        MaintenanceRequest request = new MaintenanceRequest.Builder("MR101", student.getStudentId(), "R001",
-                "Broken door", requestDate)
-                .status("In Progress")
-                .staffId("213213")
-                .resolutionNotes("Resolved by replacing the door handle")
-                .completionDate(completionDate)
-                .build();
-
-        if (request != null) {
-            System.out.println("Maintenance Request Created Successfully: " + request);
-        } else {
-            System.out.println("Failed to create Maintenance Request. Please check input values.");
-        }
 
         // Create room (Fixed incorrect room number formatting)
         Room room = RoomFactory.createRoom("R002", 2, "Single", "Occupied", 2, "Eldorado");
@@ -77,6 +64,23 @@ public class Main {
             System.out.println("Room successfully created: " + room);
         } else {
             System.out.println("Failed to create Room.");
+        }
+        // Create maintenance request (Fixed status to boolean)
+        LocalDateTime requestDate = LocalDateTime.now();
+        LocalDateTime completionDate = requestDate.plusDays(2);
+
+        MaintenanceRequest request = null;
+        if (student != null && staff != null) {
+            request = MaintenanceRequestFactory.createMaintenanceRequest(
+                    "REQ123456", student.getStudentId(), room.getRoomID(), "Broken door",
+                    requestDate, "Completed",  // Boolean status instead of string
+                    staff.getStaffID(), "Resolved by replacing the door handle", completionDate);
+        }
+
+        if (request != null) {
+            System.out.println("Maintenance Request successfully created: " + request);
+        } else {
+            System.out.println("Failed to create Maintenance Request");
         }
     }
 }
