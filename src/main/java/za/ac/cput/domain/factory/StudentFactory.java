@@ -9,7 +9,7 @@ public class StudentFactory {
                                         String phoneNumber, Boolean status, String roomID, String leaderId) {
         // Validate required fields
         if (Helper.isNullOrEmpty(studentId) || !Helper.isValidStudentId(studentId)) {
-            studentId = Helper.generateId(); // Auto-generate ID if invalid.
+            studentId = Helper.generateId(); // Auto-generate ID if invalid
         }
 
         if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName) ||
