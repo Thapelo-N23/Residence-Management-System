@@ -1,6 +1,6 @@
 package za.ac.cput.domain.factory;
 import za.ac.cput.domain.util.Helper;
-import za.ac.cput.domain.Room;
+import za.ac.cput.domain.entities.Room;
 
 public class RoomFactory {
     public static Room createRoom(String roomID, Integer roomNumber, String roomType,

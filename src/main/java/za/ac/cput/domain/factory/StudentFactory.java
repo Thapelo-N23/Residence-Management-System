@@ -1,15 +1,12 @@
 package za.ac.cput.domain.factory;
 
-import za.ac.cput.domain.Student;
-import za.ac.cput.domain.util.Helper;
-
-import za.ac.cput.domain.Student;
+import za.ac.cput.domain.entities.Student;
 import za.ac.cput.domain.util.Helper;
 
 public class StudentFactory {
 
     public static Student createStudent(String studentId, String firstName, String lastName, String email,
-                                        String phoneNumber, Boolean status, String roomId, String leaderId) {
+                                        String phoneNumber, Boolean status, String roomID, String leaderId) {
         // Validate required fields
         if (Helper.isNullOrEmpty(studentId) || !Helper.isValidStudentId(studentId)) {
             studentId = Helper.generateId(); // Auto-generate ID if invalid
@@ -17,11 +14,11 @@ public class StudentFactory {
 
         if (Helper.isNullOrEmpty(firstName) || Helper.isNullOrEmpty(lastName) ||
                 Helper.isNullOrEmpty(email) || Helper.isNullOrEmpty(phoneNumber) ||
-                status == null || Helper.isNullOrEmpty(roomId) || Helper.isNullOrEmpty(leaderId)) {
+                status == null || Helper.isNullOrEmpty(roomID) || Helper.isNullOrEmpty(leaderId)) {
             return null; // Return null if any required field is missing
         }
 
-        // Validate email & phone number
+        // Validate email & phone number.
         if (!Helper.isValidEmail(email) || !Helper.isValidPhoneNumber(phoneNumber)) {
             return null;
         }
@@ -33,7 +30,7 @@ public class StudentFactory {
                 .email(email)
                 .phoneNumber(phoneNumber)
                 .status(status)
-                .roomId(roomId)
+                .roomId(roomID)
                 .leaderId(leaderId)
                 .build();
     }

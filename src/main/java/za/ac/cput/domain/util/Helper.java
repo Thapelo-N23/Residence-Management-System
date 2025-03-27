@@ -34,13 +34,15 @@ public class Helper {
 
     //Staff Helper
     //validate the stuff ID if it meets the requirements
-    public static boolean isValid(String staffId) {
-        if (staffId == null || !staffId.matches("STF\\d{6}")) { // Format: STF123456
-            System.out.println("❌ Invalid Staff ID: " + staffId + " (Must follow 'STF' + 6 digits)");
+
+    public static boolean isValidStaffID(String staffID) {
+        if (staffID == null || !staffID.matches("STA\\d{6}")) { // Format: STU123456
+            System.out.println("Invalid Staff ID: " + staffID + " (Must follow 'STA' + 6 digits)");
             return false;
         }
         return true;
     }
+
 
     //Payment Helper
     // Validate payment ID format (must be 'PAY' followed by exactly 6 digits)
@@ -82,7 +84,7 @@ public class Helper {
 
    // Maintenance Request Helper
     public static boolean isValidRequestId(String requestId) {
-        if (requestId == null || !requestId.matches("^REQ\\d{6}$")) {
+        if (requestId == null || !requestId.matches("REQ\\d{6}")) {
             System.out.println("!Invalid Request ID: " + requestId + " (Must be 'REQ' followed by 6 digits).");
             return false;
         }
