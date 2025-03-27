@@ -39,7 +39,7 @@ public class ResidenceRepository implements IResidenceRepository {
     // ✅ Lambda for update
     @Override
     public Residence update(Residence residence) {
-        boolean delete = delete(String.valueOf(residence).getID());
+        boolean delete = delete(String.valueOf(residence).getleaderID());
         residenceList.add(residence);
         return residence;
     }
