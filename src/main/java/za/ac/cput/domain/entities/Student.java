@@ -1,14 +1,14 @@
 package za.ac.cput.domain.entities;
 
 public class Student {
-    private String studentId;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phoneNumber;
-    private Boolean status;
-    private String roomID;
-    private String leaderId;
+    private final String studentId;
+    private final String firstName;
+    private final String lastName;
+    private final String email;
+    private final String phoneNumber;
+    private final Boolean status;
+    private final String roomID;
+    private final String leaderId;
 
     private Student(Builder builder) {
         this.studentId = builder.studentId;

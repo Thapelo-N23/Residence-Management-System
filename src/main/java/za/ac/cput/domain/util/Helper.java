@@ -1,5 +1,11 @@
-package za.ac.cput.domain.util;
+//222260971 Thapelo Ngwenya
+//230640893 Phindile Lisa Ngozi
+//230023967 Mengezi Junior Ngwenya
+//230666426 Tsireledzo Netshilonwe
+//230741754 Onako Ntsaluba
+// 230277845 Olwethu Nene
 
+package za.ac.cput.domain.util;
 
 
 import java.time.LocalDate;
@@ -57,7 +63,11 @@ public class Helper {
         return true;
     }
 
+
+    // Validate the amount (must be a positive value)
+
     // Validate the amount (must be  positive value)
+
     public static boolean isValidAmount(String amount) {
         if (isNullOrEmpty(amount)) {
             return false;
