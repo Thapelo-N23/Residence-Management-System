@@ -33,9 +33,9 @@ public class StudentRepository implements IStudentRepository {
 
     @Override
     public Student read(String studentId) {
-        for (Student s : studentList) {
-            if (s.getStudentId().equals(studentId))
-                return s;
+        for (Student student : studentList) {
+            if (student.getStudentId().equals(studentId))
+                return student;
         }
         return null;
     }

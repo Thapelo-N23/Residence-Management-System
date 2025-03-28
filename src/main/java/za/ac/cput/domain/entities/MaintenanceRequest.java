@@ -80,6 +80,15 @@ public class MaintenanceRequest {
                 '}';
     }
 
+    public boolean add(MaintenanceRequest request) {
+        return false;
+    }
+
+    public String getRequestID() {
+
+        return null;
+    }
+
     public static class Builder {
         private String requestId;
         private String studentId;
