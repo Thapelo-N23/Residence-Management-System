@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MaintenanceRequestRepositoryTest {
     private MaintenanceRequestRepository repository;
     private MaintenanceRequest request;
+    private MaintenanceRequest[] MaintenanceRequestList;
 
     @BeforeEach
     void setUp() {
@@ -66,5 +67,14 @@ class MaintenanceRequestRepositoryTest {
         repository.create(request);
         List<MaintenanceRequest> allRequests = repository.getAll();
         assertFalse(allRequests.isEmpty());
+    }
+
+    public MaintenanceRequest read(String s) {
+        for (MaintenanceRequest request : MaintenanceRequestList) {
+            if (request.getRequestID().equals(s)) {
+                return request;
+            }
+        }
+        return null;
     }
 }
