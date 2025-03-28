@@ -11,14 +11,12 @@ import java.time.LocalDateTime;
 
 public class Main {
 
-<<<<<<< HEAD
+
     public static void main(String[] args){
         Residence leader = ResidenceFactory.createResidence("60971", "Thapelo", "thapelo_nicloud.com", "Block D");
-if (leader != null){
-=======
-    public static void main(String[] args) {
-        Residence leader = ResidenceFactory.createResidence("123456789", "Thapelo", "thape@gmail.com", "Block D");
->>>>>>> origin/main
+if (leader != null) {
+
+
 
         if (leader != null) {
             System.out.println("Leader created: " + leader);
@@ -62,7 +60,6 @@ if (leader != null){
         }
 
 
-
         // Create room (Fixed incorrect room number formatting)
         Room room = RoomFactory.createRoom("R002", 2, "Single", "Occupied", 2, "Eldorado");
 
@@ -89,4 +86,5 @@ if (leader != null){
             System.out.println("Failed to create Maintenance Request");
         }
     }
+}
 }
