@@ -16,7 +16,7 @@ public class Staff {
         this.role = builder.role;
     }
 
-    // Getter methods
+
     public String getStaffID() {
         return staffID;
     }
@@ -24,6 +24,7 @@ public class Staff {
     public String getFirstName() {
         return firstName;
     }
+
 
     public String getLastName() {
         return lastName;

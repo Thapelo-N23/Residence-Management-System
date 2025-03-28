@@ -61,8 +61,6 @@ public class StaffRepository implements IStaffRepository {
             return false;
         return (staffList.remove(staffToDelete));
 
-    public boolean delete(String id) {
-        return staffList.removeIf(staff -> staff.getStaffID().equals(id));
 
     }
     @Override
