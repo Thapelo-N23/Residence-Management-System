@@ -9,7 +9,7 @@ public class ResidenceFactory {
 
         if (Helper.isNullOrEmpty(leaderId) || !Helper.isValidId(leaderId)) {
             System.out.println("⚠️ Warning: Provided ID is invalid or missing. Generating a new ID...");
-            leaderId = Helper.generateId(); // Generate a new valid ID
+            leaderId = String.valueOf(Helper.isValidId("222260971")); // Generate a new valid ID
         }
 
         if (Helper.isNullOrEmpty(leaderId)  || Helper.isNullOrEmpty(name) || Helper.isNullOrEmpty(email) || Helper.isNullOrEmpty(assignedBlock) ) {
