@@ -36,8 +36,8 @@ public class Helper {
     //validate the stuff ID if it meets the requirements
 
     public static boolean isValidStaffID(String staffID) {
-        if (staffID == null || !staffID.matches("STA\\d{6}")) { // Format: STU123456
-            System.out.println("Invalid Staff ID: " + staffID + " (Must follow 'STA' + 6 digits)");
+        if (staffID == null || !staffID.matches("^S\\d{4}$")) {
+            System.out.println("❌ Invalid Staff ID: Must start with 'S' followed by 4 digits.");
             return false;
         }
         return true;
