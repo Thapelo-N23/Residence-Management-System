@@ -25,6 +25,9 @@ public class Residence {
 
 
 
+
+
+main
     public String getLeaderID() {
         return leaderID;
     }
@@ -44,6 +47,8 @@ public class Residence {
 
 
 
+
+ main
 
     public static class Builder {
         private String leaderID;

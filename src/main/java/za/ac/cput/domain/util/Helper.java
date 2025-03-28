@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
+
 public class Helper {
 
     // Check if a string is null or empty
@@ -106,6 +107,11 @@ public class Helper {
 
     // Validate phone number (Must be exactly 10 digits)
     public static boolean isValidPhoneNumber(String phoneNumber) {
-        return phoneNumber != null && phoneNumber.matches("\\d{10}");
-    }
+        return phoneNumber != null && phoneNumber.matches("\\d{
+
+}
+
+public void main() {
+}
+
 }
