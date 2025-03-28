@@ -13,6 +13,20 @@ public class Main {
 
 
 
+    public static void main(String[] args){
+        Residence leader = ResidenceFactory.createResidence("60971", "Thapelo", "thapelo_nicloud.com", "Block D");
+if (leader != null) {
+
+
+
+        if (leader != null) {
+            System.out.println("Leader created: " + leader);
+        } else {
+            System.out.println("Leader is null");
+        }
+
+
+
     public static void main(String[] args) {
         Residence leader = ResidenceFactory.createResidence("60971", "Thapelo", "thapelo_nicloud.com", "Block D");
         if (leader != null) {
@@ -23,6 +37,9 @@ public class Main {
             } else {
                 System.out.println("Leader is null");
             }
+
+        // Create room (Fixed incorrect room number formatting)
+        Room room = RoomFactory.createRoom("R002", 2, "Single", "Occupied", 2, "Eldorado");
 
 
 
@@ -98,4 +115,7 @@ public class Main {
                 System.out.println("Failed to create Maintenance Request");
             }
         }
-    }}
+
+    }
+
+
