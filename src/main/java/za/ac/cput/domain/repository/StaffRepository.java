@@ -1,7 +1,7 @@
-//230666426 Tsireledzo Netshilonwe
+// 230666426 Tsireledzo Netshilonwe
 package za.ac.cput.domain.repository;
-import za.ac.cput.domain.entities.Staff;
 
+import za.ac.cput.domain.entities.Staff;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -13,13 +13,11 @@ public class StaffRepository implements IStaffRepository {
 
     private StaffRepository() {
         staffList = new ArrayList<>();
-
     }
 
     public static IStaffRepository getIRepository() {
         if (repository == null) {
             repository = new StaffRepository();
-
         }
         return repository;
     }
@@ -33,30 +31,30 @@ public class StaffRepository implements IStaffRepository {
     @Override
     public Staff read(String staffId) {
         return staffList.stream()
-                .filter(residence -> residence.getStaffID().equals(staffId))
+                .filter(staff -> staff.getStaffID().equals(staffId)) // ✅ Fixed lambda parameter
                 .findFirst()
                 .orElse(null);
     }
 
-    public Staff update(Staff payment) {
-
-        String ID  = payment.getStaffID();
-        Staff paymentOld = read(ID);
-        if(paymentOld == null )
-
+    @Override
+    public Staff update(Staff staff) {  // ✅ Changed parameter name from "payment" to "staff"
+        String ID = staff.getStaffID();
+        Staff oldStaff = read(ID);
+        if (oldStaff == null) {
             return null;
+        }
 
         boolean success = delete(ID);
-        if (success ){
-            if (staffList.add(payment))
-                return payment;
+        if (success) {
+            staffList.add(staff);
+            return staff;
         }
         return null;
     }
 
     @Override
     public boolean delete(String id) {
-        return staffList.removeIf(residence -> Staff.getStaffID().equals(id));
+        return staffList.removeIf(staff -> staff.getStaffID().equals(id));
     }
 
     @Override

@@ -17,13 +17,25 @@ public class Staff {
 
     }
 
-    public static String getStaffID() { return staffID; }
-    public String getLastName() { return lastName; }
-    public String getFirstName() { return firstName; }
-    public String getEmail() { return email; }
-    public String getRole() { return role; }
+    public String getStaffID() {
+        return staffID;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+}
     @Override
     public String toString() {
         return "Staff{" +
