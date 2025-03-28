@@ -14,12 +14,10 @@ public class Residence {
         this.assignedBlock = builder.assignedBlock;
     }
 
-<<<<<<< HEAD:src/main/java/za/ac/cput/domain/Residence.java
     public Object getleaderId() {
         return leaderID;
     }
 
-=======
     public String getLeaderID() {
         return leaderID;
     }
@@ -35,7 +33,6 @@ public class Residence {
     public String getAssignedBlock() {
         return assignedBlock;
     }
->>>>>>> origin/main:src/main/java/za/ac/cput/domain/entities/Residence.java
 
     public static class Builder {
         private String leaderID;
