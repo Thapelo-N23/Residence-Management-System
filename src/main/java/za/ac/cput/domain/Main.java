@@ -11,8 +11,14 @@ import java.time.LocalDateTime;
 
 public class Main {
 
+<<<<<<< HEAD
+    public static void main(String[] args){
+        Residence leader = ResidenceFactory.createResidence("60971", "Thapelo", "thapelo_nicloud.com", "Block D");
+if (leader != null){
+=======
     public static void main(String[] args) {
         Residence leader = ResidenceFactory.createResidence("123456789", "Thapelo", "thape@gmail.com", "Block D");
+>>>>>>> origin/main
 
         if (leader != null) {
             System.out.println("Leader created: " + leader);
@@ -34,7 +40,7 @@ public class Main {
         // Create staff
         Staff staff = null;
         if (leader != null) {
-            staff = StaffFactory.createStaff("STA654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
+            staff = StaffFactory.createStaff("S6543", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
         }
 
         if (staff != null) {
