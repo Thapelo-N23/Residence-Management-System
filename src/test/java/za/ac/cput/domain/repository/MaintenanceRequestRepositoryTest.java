@@ -18,7 +18,7 @@ class MaintenanceRequestRepositoryTest {
         repository = MaintenanceRequestRepository.getRepository();
         request = new MaintenanceRequest.Builder("MR101", "STU230640", "R001", "Broken door", LocalDateTime.now())
                 .staffId("STAFF123")
-                .resolutionNotes("Replaced the door handle")
+                .resolutionNotes("Replaced the door handle.")
                 .completionDate(LocalDateTime.now().plusDays(2))
                 .status(false)
                 .build();
