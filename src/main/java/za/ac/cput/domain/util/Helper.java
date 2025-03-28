@@ -1,21 +1,23 @@
 package za.ac.cput.domain.util;
 
+
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
-
-
-
 public class Helper {
 
+    // Check if a string is null or empty
     public static boolean isNullOrEmpty(String str) {
-        return str == null || str.isEmpty();
+        return str == null || str.trim().isEmpty();
     }
 
-    public static String generateId() {
-        return UUID.randomUUID().toString().substring(0, 9); // Generate a 9-char ID
+    // Generate a 9-digit numeric ID
+    public static String generateNumericId() {
+        return String.format("%09d", Math.abs(UUID.randomUUID().getMostSignificantBits()) % 1_000_000_000);
     }
 
     public static boolean isValidEmail(String email) {
@@ -27,34 +29,24 @@ public class Helper {
 
 
     }
+
+    // Validate a 9-digit numeric ID
     public static boolean isValidId(String leaderId) {
         if (leaderId == null || !leaderId.matches("\\d{9}")) { // Only numbers, length 9
-            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 6-9 digits)");
+            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 9 digits)");
             return false;
         }
         return true;
-    }
+}
 
-    //Staff Helper
-    //validate the stuff ID if it meets the requirements
-
+    // Validate staff ID format (Must start with 'S' followed by 4 digits)
     public static boolean isValidStaffID(String staffID) {
-        if (staffID == null || !staffID.matches("STA\\d{6}")) { // Format: STU123456
-            System.out.println("Invalid Staff ID: " + staffID + " (Must follow 'STA' + 6 digits)");
-            return false;
-        }
-        return true;
+        return staffID != null && staffID.matches("^S\\d{4}$");
     }
 
-
-    //Payment Helper
-    // Validate payment ID format (must be 'PAY' followed by exactly 6 digits)
+    // Validate payment ID format ('PAY' followed by 6 digits)
     public static boolean isValidPaymentId(String paymentId) {
-        if (paymentId == null || !paymentId.matches("^PAY\\d{6}$")) { // Must be 'PAY' followed by exactly 6 digits
-            System.out.println("❌ Invalid Payment ID: " + paymentId + " (Must be 'PAY' followed by 6 digits).");
-            return false;
-        }
-        return true;
+        return paymentId != null && paymentId.matches("^PAY\\d{6}$");
     }
 
     // Validate the amount (must be a positive value)
