@@ -17,7 +17,7 @@ public class Staff {
 
     }
 
-    public String getStaffID() { return staffID; }
+    public static String getStaffID() { return staffID; }
     public String getLastName() { return lastName; }
     public String getFirstName() { return firstName; }
     public String getEmail() { return email; }
