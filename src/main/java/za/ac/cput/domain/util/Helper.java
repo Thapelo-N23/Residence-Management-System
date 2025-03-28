@@ -57,7 +57,7 @@ public class Helper {
         return true;
     }
 
-    // Validate the amount (must be a positive value)
+    // Validate the amount (must be  positive value)
     public static boolean isValidAmount(String amount) {
         if (isNullOrEmpty(amount)) {
             return false;
