@@ -20,6 +20,8 @@ public class Residence {
     }
 
 
+
+
     public String getLeaderID() {
         return leaderID;
     }
