@@ -20,6 +20,14 @@ public class Residence {
     }
 
 
+
+
+
+
+
+
+
+main
     public String getLeaderID() {
         return leaderID;
     }
@@ -35,6 +43,12 @@ public class Residence {
     public String getAssignedBlock() {
         return assignedBlock;
     }
+
+
+
+
+
+ main
 
     public static class Builder {
         private String leaderID;
