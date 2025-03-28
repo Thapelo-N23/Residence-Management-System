@@ -1,3 +1,4 @@
+
 //222260971 Thapelo Ngwenya
 //230640893 Phindile Lisa Ngozi
 //230023967 Mengezi Junior Ngwenya
@@ -14,6 +15,10 @@ public class Main {
 
     }
 }
+
+    public static void main(String[] args) {
+    }
+
 
 
 
