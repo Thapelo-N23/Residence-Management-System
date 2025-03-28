@@ -34,7 +34,7 @@ public class Main {
         // Create staff
         Staff staff = null;
         if (leader != null) {
-            staff = StaffFactory.createStaff("STA654321", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
+            staff = StaffFactory.createStaff("S6543", "Tsireledzo", "Mbedzi", "tsireledzombedzi@gmail.com", "worker");
         }
 
         if (staff != null) {
