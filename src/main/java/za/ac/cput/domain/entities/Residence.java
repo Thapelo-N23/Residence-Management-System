@@ -1,4 +1,4 @@
-package za.ac.cput.domain.entities;
+package za.ac.cput.domain.entities;                             //222260971 Thapelo Ngwenya
 
 public class Residence {
 
