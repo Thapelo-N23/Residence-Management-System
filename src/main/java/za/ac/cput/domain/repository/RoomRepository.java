@@ -21,6 +21,10 @@ public class RoomRepository implements IRoomRepository {
         return repository;
     }
 
+    public static Object getIRepository() {
+        return false;
+    }
+
     @Override
     public Room create(Room room) {
         boolean success = roomList.add(room);  // ✅ Fixed: Now adding to roomList

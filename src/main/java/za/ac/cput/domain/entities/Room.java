@@ -43,6 +43,11 @@ public class Room {
             return this;
     }
 
+    public boolean add(Room room) {
+
+        return false;
+    }
+
     public static class Builder {
             private String roomID;
             private Integer roomNumber;
