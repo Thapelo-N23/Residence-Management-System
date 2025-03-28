@@ -18,7 +18,7 @@ public class StudentFactory {
             return null; // Return null if any required field is missing
         }
 
-        // Validate email & phone number
+        // Validate email & phone number.
         if (!Helper.isValidEmail(email) || !Helper.isValidPhoneNumber(phoneNumber)) {
             return null;
         }
