@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
+
 public class Helper {
 
     public static boolean isNullOrEmpty(String str) {
@@ -125,4 +126,7 @@ public class Helper {
         return phoneNumber != null && phoneNumber.matches("\\d{10}");
     }
 
+}
+
+public void main() {
 }
