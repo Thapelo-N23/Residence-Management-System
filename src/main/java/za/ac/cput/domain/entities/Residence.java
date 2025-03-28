@@ -42,9 +42,6 @@ public class Residence {
         private String email;
         private String assignedBlock;
 
-
-
-
         public Builder setLeaderID(String leaderID) {
             this.leaderID = leaderID;
             return this;
