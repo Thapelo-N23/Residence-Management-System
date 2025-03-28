@@ -1,7 +1,6 @@
 package za.ac.cput.domain.repository;
 
 import za.ac.cput.domain.entities.Room;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,8 +11,7 @@ public class RoomRepository implements IRoomRepository {
     private List<Room> roomList;
 
     private RoomRepository() {
-        roomList = new ArrayList<Room>();
-
+        roomList = new ArrayList<>();
     }
 
     public static IRoomRepository getRepository() {
@@ -23,20 +21,20 @@ public class RoomRepository implements IRoomRepository {
         return repository;
     }
 
-    @Override
-    public Room create(Room room) {
-        boolean success = room.add(room);
-        if (success) {
-            return room;
-        }
-        return null;
+    public static Object getIRepository() {
+        return false;
     }
 
     @Override
-    public Room read(String s) {
-        for (Room r : roomList) {
+    public Room create(Room room) {
+        boolean success = roomList.add(room);  // ✅ Fixed: Now adding to roomList
+        return success ? room : null;
+    }
 
-            if (r.getRoomID().equals(r.getRoomID())) {
+    @Override
+    public Room read(String roomId) {
+        for (Room r : roomList) {
+            if (r.getRoomID().equals(roomId)) {  // ✅ Fixed: Now correctly compares with input ID
                 return r;
             }
         }
@@ -46,20 +44,22 @@ public class RoomRepository implements IRoomRepository {
     @Override
     public Room update(Room room) {
         String id = room.getRoomID();
-        Room roomID = read(id);
-        if (roomID == null)
+        Room existingRoom = read(id);
+        if (existingRoom == null) {
+            return null;  // ✅ Return null if the room does not exist
+        }
 
-            return null;
-
-        return roomID;
+        boolean removed = delete(id);  // ✅ Remove old entry
+        if (removed) {
+            roomList.add(room);  // ✅ Add updated room
+            return room;
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String id) {
-    Room roomToDelete = read(id);
-    if(roomToDelete==null)
-        return false;
-        return false;
+        return roomList.removeIf(room -> room.getRoomID().equals(id));  // ✅ Fixed: Now removes correctly
     }
 
     @Override
