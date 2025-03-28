@@ -10,14 +10,12 @@ import java.util.UUID;
 
 public class Helper {
 
-    // Check if a string is null or empty
     public static boolean isNullOrEmpty(String str) {
-        return str == null || str.trim().isEmpty();
+        return str == null || str.isEmpty();
     }
 
-    // Generate a 9-digit numeric ID
-    public static String generateNumericId() {
-        return String.format("%09d", Math.abs(UUID.randomUUID().getMostSignificantBits()) % 1_000_000_000);
+    public static String generateId() {
+        return UUID.randomUUID().toString().substring(0, 9); // Generate a 9-char ID
     }
 
     public static boolean isValidEmail(String email) {
@@ -29,27 +27,41 @@ public class Helper {
 
 
     }
-
-    // Validate a 9-digit numeric ID
     public static boolean isValidId(String leaderId) {
         if (leaderId == null || !leaderId.matches("\\d{9}")) { // Only numbers, length 9
-            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 9 digits)");
+            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 6-9 digits)");
             return false;
         }
         return true;
-}
+    }
 
-    // Validate staff ID format (Must start with 'S' followed by 4 digits)
+    //Staff Helper
+    //validate the stuff ID if it meets the requirements
+
     public static boolean isValidStaffID(String staffID) {
-        return staffID != null && staffID.matches("^S\\d{4}$");
+        if (staffID == null || !staffID.matches("STA\\d{6}")) { // Format: STU123456
+            System.out.println("Invalid Staff ID: " + staffID + " (Must follow 'STA' + 6 digits)");
+            return false;
+        }
+        return true;
     }
 
-    // Validate payment ID format ('PAY' followed by 6 digits)
+
+    //Payment Helper
+    // Validate payment ID format (must be 'PAY' followed by exactly 6 digits)
     public static boolean isValidPaymentId(String paymentId) {
-        return paymentId != null && paymentId.matches("^PAY\\d{6}$");
+        if (paymentId == null || !paymentId.matches("^PAY\\d{6}$")) { // Must be 'PAY' followed by exactly 6 digits
+            System.out.println("❌ Invalid Payment ID: " + paymentId + " (Must be 'PAY' followed by 6 digits).");
+            return false;
+        }
+        return true;
     }
+
 
     // Validate the amount (must be a positive value)
+
+    // Validate the amount (must be  positive value)
+
     public static boolean isValidAmount(String amount) {
         if (isNullOrEmpty(amount)) {
             return false;

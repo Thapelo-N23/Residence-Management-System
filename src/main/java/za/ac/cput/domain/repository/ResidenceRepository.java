@@ -1,6 +1,6 @@
 package za.ac.cput.domain.repository;
 
-import za.ac.cput.domain.Residence;
+import za.ac.cput.domain.entities.Residence;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -37,11 +37,13 @@ public class ResidenceRepository implements IResidenceRepository {
     }
 
     // ✅ Lambda for update
-    @Override
     public Residence update(Residence residence) {
-        boolean delete = delete(String.valueOf(residence).getleaderID());
-        residenceList.add(residence);
-        return residence;
+        boolean removed = delete(residence.getLeaderID()); // ✅ Delete old entry
+        if (removed) {
+            residenceList.add(residence); // ✅ Add updated entry
+            return residence;
+        }
+        return null; // ✅ Return null if update fails
     }
 
     // ✅ Lambda for delete
