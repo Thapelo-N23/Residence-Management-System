@@ -11,6 +11,21 @@ import java.time.LocalDateTime;
 
 public class Main {
 
+
+
+    public static void main(String[] args) {
+        Residence leader = ResidenceFactory.createResidence("60971", "Thapelo", "thapelo_nicloud.com", "Block D");
+        if (leader != null) {
+
+
+            if (leader != null) {
+                System.out.println("Leader created: " + leader);
+            } else {
+                System.out.println("Leader is null");
+            }
+
+
+
     public static void main(String[] args) {
         Residence leader = ResidenceFactory.createResidence("60971", "Thapelo", "thapelo_nicloud.com", "Block D");
         if (leader != null) {
