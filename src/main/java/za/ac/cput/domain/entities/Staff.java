@@ -1,7 +1,7 @@
 package za.ac.cput.domain.entities;
 
 public class Staff {
-    private String staffID;
+    private static String staffID;
     private String firstName;
     private String lastName;
     private String email;
