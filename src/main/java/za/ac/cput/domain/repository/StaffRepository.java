@@ -1,5 +1,6 @@
 //230666426 Tsireledzo Netshilonwe
 package za.ac.cput.domain.repository;
+import za.ac.cput.domain.entities.Payment;
 import za.ac.cput.domain.entities.Staff;
 
 import java.util.ArrayList;
@@ -55,10 +56,12 @@ public class StaffRepository implements IStaffRepository {
     }
 
     @Override
-    public boolean delete(String id) {
-        return staffList.removeIf(residence -> Staff.getStaffID().equals(id));
+    public boolean delete(String ID) {
+        Staff staffToDelete = read(ID);
+        if (staffToDelete == null)
+            return false;
+        return (staffList.remove(staffToDelete));
     }
-
     @Override
     public Set<Staff> getAll() {
         return new HashSet<>(staffList);
