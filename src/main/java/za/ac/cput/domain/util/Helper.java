@@ -37,7 +37,7 @@ public class Helper {
 
     public static boolean isValidStaffID(String staffID) {
         if (staffID == null || !staffID.matches("^S\\d{4}$")) {
-            System.out.println("❌ Invalid Staff ID: Must start with 'S' followed by 4 digits.");
+            System.out.println("Invalid Staff ID: Must start with 'S' followed by 4 digits.");
             return false;
         }
         return true;
