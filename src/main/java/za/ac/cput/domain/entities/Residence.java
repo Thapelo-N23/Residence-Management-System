@@ -20,11 +20,6 @@ public class Residence {
     }
 
 
-
-
-
-
-
     public String getLeaderID() {
         return leaderID;
     }
@@ -41,18 +36,11 @@ public class Residence {
         return assignedBlock;
     }
 
-
-
-
-
     public static class Builder {
         private String leaderID;
         private String name;
         private String email;
         private String assignedBlock;
-
-
-
 
         public Builder setLeaderID(String leaderID) {
             this.leaderID = leaderID;
