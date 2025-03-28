@@ -7,29 +7,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class PaymentRepository implements IPaymentRepository{
-
+public class PaymentRepository implements IPaymentRepository {
 
     private static IPaymentRepository repository = null;
     private List<Payment> paymentList;
 
-
-    private PaymentRepository(){
+    private PaymentRepository() {
         paymentList = new ArrayList<>();
     }
-   public static IPaymentRepository getRepository(){
+
+    public static IPaymentRepository getRepository() {
         if (repository == null) {
             repository = new PaymentRepository();
         }
         return repository;
-   }
-
+    }
 
     @Override
-
     public Payment create(Payment payment) {
-        boolean success = paymentList.add(payment);
-        if (success){
+        if (paymentList.add(payment)) {
             return payment;
         }
         return null;
@@ -37,36 +33,26 @@ public class PaymentRepository implements IPaymentRepository{
 
     @Override
     public Payment read(String ID) {
-        for(Payment p : paymentList){
-            if (p.getPaymentID().equals(ID))
-                return p;
-        }
-        return null;
+        return paymentList.stream()
+                .filter(payment -> payment.getPaymentID().equals(ID))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
     public Payment update(Payment payment) {
-
-      String ID  = payment.getPaymentID();
-      Payment paymentOld = read(ID);
-      if(paymentOld == null )
-
-        return null;
-
-      boolean success = delete(ID);
-      if (success ){
-          if (paymentList.add(payment))
-              return payment;
-      }
-        return null;
+        for (int i = 0; i < paymentList.size(); i++) {
+            if (paymentList.get(i).getPaymentID().equals(payment.getPaymentID())) {
+                paymentList.set(i, payment); // ✅ Replace the existing payment
+                return payment;
+            }
+        }
+        return null; // ❌ ID not found
     }
 
     @Override
     public boolean delete(String ID) {
-        Payment paymentToDelete = read(ID);
-        if (paymentToDelete == null)
-        return false;
-        return (paymentList.remove(paymentToDelete));
+        return paymentList.removeIf(payment -> payment.getPaymentID().equals(ID));
     }
 
     @Override
@@ -74,4 +60,3 @@ public class PaymentRepository implements IPaymentRepository{
         return new HashSet<>(paymentList);
     }
 }
-

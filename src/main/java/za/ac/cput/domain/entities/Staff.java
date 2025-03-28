@@ -17,6 +17,11 @@ public class Staff {
 
     }
 
+<<<<<<< HEAD
+    public String getStaffID() {
+        return staffID;
+    }
+=======
 
         public String getStaffID() {
             return staffID;
@@ -37,8 +42,23 @@ public class Staff {
         public String getRole() {
             return role;
         }
+>>>>>>> 61ed8086c3748050e03a06ecb895ac8bfd997d81
 
+    public String getLastName() {
+        return lastName;
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+}
     @Override
     public String toString() {
         return "Staff{" +
