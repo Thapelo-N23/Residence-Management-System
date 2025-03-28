@@ -10,14 +10,12 @@ import java.util.UUID;
 
 public class Helper {
 
-    // Check if a string is null or empty
     public static boolean isNullOrEmpty(String str) {
-        return str == null || str.trim().isEmpty();
+        return str == null || str.isEmpty();
     }
 
-    // Generate a 9-digit numeric ID
-    public static String generateNumericId() {
-        return String.format("%09d", Math.abs(UUID.randomUUID().getMostSignificantBits()) % 1_000_000_000);
+    public static String generateId() {
+        return UUID.randomUUID().toString().substring(0, 9); // Generate a 9-char ID
     }
 
     public static boolean isValidEmail(String email) {
@@ -29,41 +27,55 @@ public class Helper {
 
 
     }
-
-    // Validate a 9-digit numeric ID
     public static boolean isValidId(String leaderId) {
         if (leaderId == null || !leaderId.matches("\\d{9}")) { // Only numbers, length 9
-            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 9 digits)");
+            System.out.println("❌ Invalid ID: " + leaderId + " (Must be 6-9 digits)");
             return false;
         }
         return true;
-}
+    }
 
-    // Validate staff ID format (Must start with 'S' followed by 4 digits)
+    //Staff Helper
+    //validate the stuff ID if it meets the requirements
+
     public static boolean isValidStaffID(String staffID) {
-        return staffID != null && staffID.matches("^S\\d{4}$");
+        if (staffID == null || !staffID.matches("STA\\d{6}")) { // Format: STU123456
+            System.out.println("Invalid Staff ID: " + staffID + " (Must follow 'STA' + 6 digits)");
+            return false;
+        }
+        return true;
     }
 
-    // Validate payment ID format ('PAY' followed by 6 digits)
+
+    //Payment Helper
+    // Validate payment ID format (must be 'PAY' followed by exactly 6 digits)
     public static boolean isValidPaymentId(String paymentId) {
-        return paymentId != null && paymentId.matches("^PAY\\d{6}$");
+        if (paymentId == null || !paymentId.matches("^PAY\\d{6}$")) { // Must be 'PAY' followed by exactly 6 digits
+            System.out.println("❌ Invalid Payment ID: " + paymentId + " (Must be 'PAY' followed by 6 digits).");
+            return false;
+        }
+        return true;
     }
 
-    // Validate payment amount (Must be positive)
+    // Validate the amount (must be a positive value)
     public static boolean isValidAmount(String amount) {
-        if (isNullOrEmpty(amount)) return false;
+        if (isNullOrEmpty(amount)) {
+            return false;
+        }
         try {
-            return Double.parseDouble(amount) > 0;
+            double amountValue = Double.parseDouble(amount);
+            return amountValue > 0;
         } catch (NumberFormatException e) {
             return false;
         }
     }
-    // Validate status (Must be 'true' or 'false')
+
+    // Validate if status is "true" (Paid) or "false" (Not Paid)
     public static boolean isValidStatus(String status) {
         return "true".equalsIgnoreCase(status) || "false".equalsIgnoreCase(status);
     }
 
-    // Parse date string into LocalDate (Validate format: YYYY-MM-DD)
+    // Parse the payment date string into LocalDate (validate format)
     public static LocalDate parseDate(String paymentDate) {
         try {
             return LocalDate.parse(paymentDate);
@@ -73,12 +85,15 @@ public class Helper {
         }
     }
 
-    // Validate maintenance request ID ('REQ' followed by 6 digits)
+    // Maintenance Request Helper
     public static boolean isValidRequestId(String requestId) {
-        return requestId != null && requestId.matches("REQ\\d{6}");
+        if (requestId == null || !requestId.matches("REQ\\d{6}")) {
+            System.out.println("!Invalid Request ID: " + requestId + " (Must be 'REQ' followed by 6 digits).");
+            return false;
+        }
+        return true;
     }
 
-    // Validate maintenance request status
     public static boolean isValidStatusForRequest(String status) {
         String[] validStatuses = {"Pending", "In Progress", "Completed", "Cancelled"};
         for (String validStatus : validStatuses) {
@@ -86,26 +101,30 @@ public class Helper {
                 return true;
             }
         }
+        System.out.println("!Invalid Status: " + status + " (Must be 'Pending', 'In Progress', 'Completed', or 'Cancelled').");
         return false;
     }
 
-    // Parse and validate DateTime format (YYYY-MM-DD HH:MM:SS)
     public static LocalDateTime parseDateTime(String dateTime) {
         try {
-            return LocalDateTime.parse(dateTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            return LocalDateTime.parse(dateTime);
         } catch (DateTimeParseException e) {
-            System.out.println("❌ Invalid Date-Time format: " + dateTime + ". Expected format: YYYY-MM-DD HH:MM:SS.");
+            System.out.println("!Invalid Date-Time format: " + dateTime + ". Expected format: YYYY-MM-DDTHH:MM:SS.");
             return null;
         }
     }
+//Student Helper
 
-    // Validate student ID ('STU' followed by 6 digits)
     public static boolean isValidStudentId(String studentId) {
-        return studentId != null && studentId.matches("STU\\d{6}");
+        if (studentId == null || !studentId.matches("STU\\d{6}")) { // Format: STU123456
+            System.out.println("❌ Invalid Student ID: " + studentId + " (Must follow 'STU' + 6 digits)");
+            return false;
+        }
+        return true;
     }
-
-    // Validate phone number (Must be exactly 10 digits)
     public static boolean isValidPhoneNumber(String phoneNumber) {
+
         return phoneNumber != null && phoneNumber.matches("\\d{10}");
     }
+
 }

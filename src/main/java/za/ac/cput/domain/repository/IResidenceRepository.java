@@ -1,6 +1,6 @@
 package za.ac.cput.domain.repository;
 
-import za.ac.cput.domain.Residence;
+import za.ac.cput.domain.entities.Residence;
 
 import java.util.Set;
 
