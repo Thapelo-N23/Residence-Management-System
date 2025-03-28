@@ -1,6 +1,7 @@
 package za.ac.cput.domain.entities;
 
 import java.time.LocalDate;
+//author:Mengezi Junior Ngwenya 230023967
 
 public class Payment {
     private String paymentID; // PK
