@@ -71,7 +71,7 @@ public class PaymentRepository implements IPaymentRepository{
 
     @Override
     public Set<Payment> getAll() {
-        return null;
-
+        return new HashSet<>(paymentList);
     }
 }
+
