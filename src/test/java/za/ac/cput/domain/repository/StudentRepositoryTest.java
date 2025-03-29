@@ -22,7 +22,7 @@ public class StudentRepositoryTest {
                 .firstName("Phindile")
                 .lastName("Lisa Ngozi")
                 .email("Lisangozi@gmail.com")
-                .phoneNumber("0723324418")
+                .phoneNumber("0723324418.")
                 .status(true)
                 .roomId("R001")
                 .leaderId("123456789")
