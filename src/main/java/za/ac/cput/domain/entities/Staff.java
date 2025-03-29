@@ -1,7 +1,7 @@
 package za.ac.cput.domain.entities;
 
 public class Staff {
-    private String staffID;
+    private static String staffID;
     private String firstName;
     private String lastName;
     private String email;
@@ -17,11 +17,26 @@ public class Staff {
 
     }
 
-    public static String getStaffID() { return staffID; }
-    public String getLastName() { return lastName; }
-    public String getFirstName() { return firstName; }
-    public String getEmail() { return email; }
-    public String getRole() { return role; }
+
+        public String getStaffID() {
+            return staffID;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public String getRole() {
+            return role;
+        }
 
 
     @Override
@@ -66,8 +81,6 @@ public class Staff {
         public Staff build() {return new Staff(this);
         }
     }
-
-
     }
 
 
