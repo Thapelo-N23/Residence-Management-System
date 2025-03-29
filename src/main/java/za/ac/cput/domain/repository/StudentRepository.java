@@ -1,12 +1,15 @@
 package za.ac.cput.domain.repository;
-import za.ac.cput.domain.entities.Student;
 
-import java.util.*;
+import za.ac.cput.domain.entities.Student;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class StudentRepository implements IStudentRepository {
 
     private static IStudentRepository repository = null;
-    private final List<Student> studentList;
+    private List<Student> studentList;
 
     private StudentRepository() {
         studentList = new ArrayList<>();
@@ -21,32 +24,44 @@ public class StudentRepository implements IStudentRepository {
 
     @Override
     public Student create(Student student) {
-        studentList.add(student);
-        return student;
-    }
-
-    @Override
-    public Student read(String studentId) {
-        for (Student student : studentList) {
-            if (student.getStudentId().equals(studentId)) {
-                return student;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Student update(Student student) {
-        if (delete(student.getStudentId())) {
-            studentList.add(student);
+        boolean success = studentList.add(student);
+        if (success) {
             return student;
         }
         return null;
     }
 
     @Override
+    public Student read(String studentId) {
+        for (Student s : studentList) {
+            if (s.getStudentId().equals(studentId))
+                return s;
+        }
+        return null;
+    }
+
+    @Override
+    public Student update(Student student) {
+        String id = student.getStudentId();
+        Student existingStudent = read(id);
+
+        if (existingStudent == null)
+            return null;
+
+        boolean success = delete(id);
+        if (success) {
+            if (studentList.add(student))
+                return student;
+        }
+        return null;
+    }
+
+    @Override
     public boolean delete(String studentId) {
-        return studentList.removeIf(student -> student.getStudentId().equals(studentId));
+        Student studentToDelete = read(studentId);
+        if (studentToDelete == null)
+            return false;
+        return studentList.remove(studentToDelete);
     }
 
     @Override
